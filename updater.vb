@@ -6,6 +6,9 @@ Public Class updater
         If My.Application.CommandLineArgs.Contains("-elder") = True Then
             elder()
         End If
+        If My.Application.CommandLineArgs.Contains("-elderbeta") = True Then
+            elderbeta()
+        End If
         If My.Application.CommandLineArgs.Contains("-launcher") = True Then
             launcher()
         End If
@@ -18,7 +21,7 @@ Public Class updater
         If My.Application.CommandLineArgs.Contains("-fdc") = True Then
             fdc()
         End If
-        If My.Application.CommandLineArgs.Contains("-elder") = False And My.Application.CommandLineArgs.Contains("-launcher") = False And My.Application.CommandLineArgs.Contains("-mhd") = False And My.Application.CommandLineArgs.Contains("-antiezo") = False And My.Application.CommandLineArgs.Contains("-fdc") = False Then
+        If My.Application.CommandLineArgs.Contains("-elder") = False And My.Application.CommandLineArgs.Contains("-elderbeta") = False And My.Application.CommandLineArgs.Contains("-launcher") = False And My.Application.CommandLineArgs.Contains("-mhd") = False And My.Application.CommandLineArgs.Contains("-antiezo") = False And My.Application.CommandLineArgs.Contains("-fdc") = False Then
             MsgBox("Nebyl zadán nebo rozpoznán žádný argument.", MsgBoxStyle.Critical, "Chyba")
             Application.Exit()
         End If
@@ -114,6 +117,38 @@ Public Class updater
             wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/mini2.exe", Application.StartupPath & "\mini2.exe")
             ProgressBar1.Value = 60
             wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/icon.ico", Application.StartupPath & "\icon.ico")
+            ProgressBar1.Value = 80
+        Catch ex As Exception
+            MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
+            Application.Exit()
+        End Try
+        ProgressBar1.Value = 100
+        Process.Start(Application.StartupPath & "\launcher.exe")
+        Me.Close()
+    End Sub
+
+    Public Sub elderbeta()
+        Dim wc As WebClient = New WebClient()
+        If Application.ExecutablePath.Contains("Program Files") Then
+            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/updater.exe", Application.StartupPath & "/migrate.exe")
+            Process.Start(Application.StartupPath & "/migrate.exe")
+            Me.Close()
+        End If
+        Do Until FileInUse(Application.StartupPath & "/launcher.exe") = False
+            Snooze(1)
+        Loop
+        Me.Show()
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Maximum = 100
+        Try
+            ProgressBar1.Value = 1
+            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/launcher.exe", Application.StartupPath & "\launcher.exe")
+            ProgressBar1.Value = 20
+            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/mini.exe", Application.StartupPath & "\mini.exe")
+            ProgressBar1.Value = 40
+            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/mini2.exe", Application.StartupPath & "\mini2.exe")
+            ProgressBar1.Value = 60
+            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/icon.ico", Application.StartupPath & "\icon.ico")
             ProgressBar1.Value = 80
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
