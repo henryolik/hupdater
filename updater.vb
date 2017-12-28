@@ -21,8 +21,11 @@ Public Class updater
         If My.Application.CommandLineArgs.Contains("-fdc") = True Then
             fdc()
         End If
-        If My.Application.CommandLineArgs.Contains("-elder") = False And My.Application.CommandLineArgs.Contains("-elderbeta") = False And My.Application.CommandLineArgs.Contains("-launcher") = False And My.Application.CommandLineArgs.Contains("-mhd") = False And My.Application.CommandLineArgs.Contains("-antiezo") = False And My.Application.CommandLineArgs.Contains("-fdc") = False Then
-            MsgBox("Nebyl zadán nebo rozpoznán žádný argument.", MsgBoxStyle.Critical, "Chyba")
+        If My.Application.CommandLineArgs.Contains("-bf2") = True Then
+            bf2()
+        End If
+        If My.Application.CommandLineArgs.Contains("-elder") = False And My.Application.CommandLineArgs.Contains("-elderbeta") = False And My.Application.CommandLineArgs.Contains("-launcher") = False And My.Application.CommandLineArgs.Contains("-mhd") = False And My.Application.CommandLineArgs.Contains("-antiezo") = False And My.Application.CommandLineArgs.Contains("-fdc") = False And My.Application.CommandLineArgs.Contains("-bf2") = False Then
+            MsgBox("No argument was found. / Nebyl zadán nebo rozpoznán žádný argument.", MsgBoxStyle.Critical, "Error")
             Application.Exit()
         End If
     End Sub
@@ -209,6 +212,24 @@ Public Class updater
         End Try
         ProgressBar1.Value = 100
         Process.Start(Application.StartupPath & "/antiezo.exe")
+        Me.Close()
+    End Sub
+
+    Public Sub bf2()
+        Label2.Text = "Update in progress"
+        Me.Show()
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Maximum = 100
+        Dim wc As WebClient = New WebClient()
+        Try
+            ProgressBar1.Value = 1
+            wc.DownloadFile("https://dl.ministudios.ml/bf2/updater/BF2Updater.exe", Application.StartupPath & "/BF2Updater.exe")
+        Catch ex As Exception
+            MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
+            Application.Exit()
+        End Try
+        ProgressBar1.Value = 100
+        Process.Start(Application.StartupPath & "/BF2Updater.exe")
         Me.Close()
     End Sub
 

@@ -1,33 +1,3 @@
 
-bin/Debug/icon.ico
-bin/Debug/launcher.exe
-bin/Debug/mini.exe
-bin/Debug/mini2.exe
-bin/Debug/run.bat
-bin/Debug/updater.exe
-bin/Debug/updater.exe.config
-bin/Debug/updater.pdb
-bin/Debug/updater.vshost.exe
-bin/Debug/updater.vshost.exe.config
-bin/Debug/updater.xml
-bin/Debug/version.txt
-bin/Release/updater.exe
-bin/Release/updater.pdb
-obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-obj/x86/Debug/updater.pdb
-obj/x86/Debug/updater.exe
-obj/x86/Debug/TempPE/My Project.Resources.Designer.vb.dll
-obj/x86/Debug/updater.Resources.resources
-obj/x86/Debug/updater.vbproj.FileListAbsolute.txt
-obj/x86/Debug/updater.updater.resources
-obj/x86/Debug/updater.vbproj.GenerateResource.Cache
-obj/x86/Release/DesignTimeResolveAssemblyReferencesInput.cache
-obj/x86/Debug/updater.xml
-obj/x86/Release/updater.exe
-obj/x86/Release/updater.Form1.resources
-obj/x86/Release/updater.pdb
-obj/x86/Release/updater.Resources.resources
-obj/x86/Release/updater.vbproj.FileListAbsolute.txt
-obj/x86/Release/updater.vbproj.GenerateResource.Cache
-obj/x86/Release/updater.xml
-obj/x86/Release/TempPE/My Project.Resources.Designer.vb.dll
+bin/*
+obj/*
