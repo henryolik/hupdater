@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Updater for Míní Studios' programs")> 
 <Assembly: AssemblyCompany("Míní Studios corp.")> 
 <Assembly: AssemblyProduct("Míní Studios Updater")> 
-<Assembly: AssemblyCopyright("Míní Studios © 2015 - 2017")> 
+<Assembly: AssemblyCopyright("Míní Studios © 2015 - 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

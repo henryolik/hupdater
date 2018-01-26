@@ -216,6 +216,15 @@ Public Class updater
     End Sub
 
     Public Sub bf2()
+        Dim exeloc As String
+        If My.Application.CommandLineArgs.Count >= 1 Then
+            Dim mystr As String = My.Application.CommandLineArgs.Item(1)
+            Dim cut_at As String = "-e:"
+            Dim x As Integer = InStr(mystr, cut_at)
+            exeloc = mystr.Substring(x + cut_at.Length - 1)
+        Else
+            exeloc = Application.StartupPath & "/BF2Updater.exe"
+        End If
         Label2.Text = "Update in progress"
         Me.Show()
         ProgressBar1.Minimum = 0
@@ -223,13 +232,13 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             ProgressBar1.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/bf2/updater/BF2Updater.exe", Application.StartupPath & "/BF2Updater.exe")
+            wc.DownloadFile("https://dl.ministudios.ml/bf2/updater/BF2Updater.exe", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
         End Try
         ProgressBar1.Value = 100
-        Process.Start(Application.StartupPath & "/BF2Updater.exe")
+        Process.Start(exeloc)
         Me.Close()
     End Sub
 
