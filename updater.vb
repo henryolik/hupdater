@@ -217,7 +217,7 @@ Public Class updater
 
     Public Sub bf2()
         Dim exeloc As String
-        If My.Application.CommandLineArgs.Count >= 1 Then
+        If My.Application.CommandLineArgs.Count >= 2 Then
             Dim mystr As String = My.Application.CommandLineArgs.Item(1)
             Dim cut_at As String = "-e:"
             Dim x As Integer = InStr(mystr, cut_at)
