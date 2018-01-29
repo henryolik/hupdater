@@ -225,6 +225,10 @@ Public Class updater
         Else
             exeloc = Application.StartupPath & "/BF2Updater.exe"
         End If
+        If exeloc.Contains(".EXE") = False Then
+            MsgBox("A path doesn't contain any exe file. BF2Updater will be downloaded to desktop, you can move it afterwards where you want, keep it on the desktop or rename it. We're sorry for this, it was a bug in version 1.0.3 and it was fixed. Thanks for your patience.", MsgBoxStyle.Information, "Bug!")
+            exeloc = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "/BF2Updater.exe"
+        End If
         Label2.Text = "Update in progress"
         Me.Show()
         ProgressBar1.Minimum = 0
