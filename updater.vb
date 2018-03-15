@@ -36,7 +36,7 @@ Public Class updater
     Public Sub launcher()
         Dim wc As WebClient = New WebClient()
         If Application.ExecutablePath.Contains("Program Files") Then
-            wc.DownloadFile("https://dl.ministudios.ml/mini/launcher/updater.exe", "migrate.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/updater.exe", "migrate.exe")
             Process.Start(Application.StartupPath & "/migrate.exe")
             Me.Close()
         End If
@@ -48,13 +48,13 @@ Public Class updater
         pb_load.Maximum = 100
         pb_load.Value = 1
         Try
-            wc.DownloadFile("https://dl.ministudios.ml/mini/launcher/files/launcher.exe", Application.StartupPath & "\launcher.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/launcher.exe", Application.StartupPath & "\launcher.exe")
             pb_load.Value = 10
-            wc.DownloadFile("https://dl.ministudios.ml/mini/launcher/files/mini.exe", Application.StartupPath & "\mini.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/mini.exe", Application.StartupPath & "\mini.exe")
             pb_load.Value = 20
-            wc.DownloadFile("https://dl.ministudios.ml/mini/launcher/files/mini2.exe", Application.StartupPath & "\mini2.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/mini2.exe", Application.StartupPath & "\mini2.exe")
             pb_load.Value = 30
-            wc.DownloadFile("https://dl.ministudios.ml/mini/launcher/files/icon.ico", Application.StartupPath & "\icon.ico")
+            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/icon.ico", Application.StartupPath & "\icon.ico")
             pb_load.Value = 35
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
@@ -104,7 +104,7 @@ Public Class updater
     Public Sub elder()
         Dim wc As WebClient = New WebClient()
         If Application.ExecutablePath.Contains("Program Files") Then
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/updater.exe", Application.StartupPath & "/migrate.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/updater.exe", Application.StartupPath & "/migrate.exe")
             Process.Start(Application.StartupPath & "/migrate.exe")
             Me.Close()
         End If
@@ -116,13 +116,13 @@ Public Class updater
         pb_load.Maximum = 100
         Try
             pb_load.Value = 1
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/launcher.exe", Application.StartupPath & "\launcher.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/files/launcher.exe", Application.StartupPath & "\launcher.exe")
             pb_load.Value = 20
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/mini.exe", Application.StartupPath & "\mini.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/files/mini.exe", Application.StartupPath & "\mini.exe")
             pb_load.Value = 40
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/mini2.exe", Application.StartupPath & "\mini2.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/files/mini2.exe", Application.StartupPath & "\mini2.exe")
             pb_load.Value = 60
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/files/icon.ico", Application.StartupPath & "\icon.ico")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/files/icon.ico", Application.StartupPath & "\icon.ico")
             pb_load.Value = 80
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
@@ -136,7 +136,7 @@ Public Class updater
     Public Sub elderbeta()
         Dim wc As WebClient = New WebClient()
         If Application.ExecutablePath.Contains("Program Files") Then
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/updater.exe", Application.StartupPath & "/migrate.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/updater.exe", Application.StartupPath & "/migrate.exe")
             Process.Start(Application.StartupPath & "/migrate.exe")
             Me.Close()
         End If
@@ -148,13 +148,13 @@ Public Class updater
         pb_load.Maximum = 100
         Try
             pb_load.Value = 1
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/launcher.exe", Application.StartupPath & "\launcher.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/beta/files/launcher.exe", Application.StartupPath & "\launcher.exe")
             pb_load.Value = 20
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/mini.exe", Application.StartupPath & "\mini.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/beta/files/mini.exe", Application.StartupPath & "\mini.exe")
             pb_load.Value = 40
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/mini2.exe", Application.StartupPath & "\mini2.exe")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/beta/files/mini2.exe", Application.StartupPath & "\mini2.exe")
             pb_load.Value = 60
-            wc.DownloadFile("http://nonssl.dl.ministudios.ml/mini/elder/beta/files/icon.ico", Application.StartupPath & "\icon.ico")
+            wc.DownloadFile("http://nonssl.dl.henryolik.ga/mini/elder/beta/files/icon.ico", Application.StartupPath & "\icon.ico")
             pb_load.Value = 80
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
@@ -172,7 +172,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/mhd/mhd.exe", Application.StartupPath & "/mhd.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/mhd/mhd.exe", Application.StartupPath & "/mhd.exe")
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -195,7 +195,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/fdc/fdc.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/fdc/fdc.exe", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -212,9 +212,9 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/antiezo/files/antiezo.exe", Application.StartupPath & "/antiezo.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/antiezo/files/antiezo.exe", Application.StartupPath & "/antiezo.exe")
             pb_load.Value = 50
-            wc.DownloadFile("https://dl.ministudios.ml/antiezo/files/tov.bat", Application.StartupPath & "/tov.bat")
+            wc.DownloadFile("https://dl.henryolik.ga/antiezo/files/tov.bat", Application.StartupPath & "/tov.bat")
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -245,7 +245,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/bf2/updater/BF2Updater.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/bf2/updater/BF2Updater.exe", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -257,10 +257,10 @@ Public Class updater
 
     Public Sub wur()
         Dim exeloc As String
-            Dim mystr As String = My.Application.CommandLineArgs.Item(1)
-            Dim cut_at As String = "-e:"
-            Dim x As Integer = InStr(mystr, cut_at)
-            exeloc = mystr.Substring(x + cut_at.Length - 1)
+        Dim mystr As String = My.Application.CommandLineArgs.Item(1)
+        Dim cut_at As String = "-e:"
+        Dim x As Integer = InStr(mystr, cut_at)
+        exeloc = mystr.Substring(x + cut_at.Length - 1)
         la_text.Text = "Update in progress..."
         Me.Show()
         pb_load.Minimum = 0
@@ -268,7 +268,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.ministudios.ml/wur/WUreset.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/wur/WUreset.exe", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -279,7 +279,7 @@ Public Class updater
     End Sub
 
     Public Function Internet() As Boolean
-        Dim objUrl As New System.Uri("https://dl.ministudios.ml/status.txt")
+        Dim objUrl As New System.Uri("https://dl.henryolik.ga/status.txt")
         Dim objWebReq As System.Net.WebRequest
         objWebReq = System.Net.WebRequest.Create(objUrl)
         Dim objResp As System.Net.WebResponse

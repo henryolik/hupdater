@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Míní Studios Updater")> 
-<Assembly: AssemblyDescription("Updater for Míní Studios' programs")> 
-<Assembly: AssemblyCompany("Míní Studios corp.")> 
-<Assembly: AssemblyProduct("Míní Studios Updater")> 
-<Assembly: AssemblyCopyright("Míní Studios © 2015 - 2018")> 
+<Assembly: AssemblyTitle("hUpdater")> 
+<Assembly: AssemblyDescription("Updater for henryolik's programs")> 
+<Assembly: AssemblyCompany("henryolik")> 
+<Assembly: AssemblyProduct("hUpdater")> 
+<Assembly: AssemblyCopyright("© henryolik 2015 - 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

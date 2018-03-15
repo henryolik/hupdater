@@ -64,7 +64,7 @@ Partial Class updater
         Me.Controls.Add(Me.pb_load)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "updater"
-        Me.Text = "Míní Studios Updater"
+        Me.Text = "hUpdater"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
