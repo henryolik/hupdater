@@ -27,6 +27,9 @@ Public Class updater
         If My.Application.CommandLineArgs.Contains("-wur") = True Then
             wur()
         End If
+        If My.Application.CommandLineArgs.Contains("-gtaiv") = True Then
+            gtaiv()
+        End If
         If My.Application.CommandLineArgs.Contains("-elder") = False And My.Application.CommandLineArgs.Contains("-elderbeta") = False And My.Application.CommandLineArgs.Contains("-launcher") = False And My.Application.CommandLineArgs.Contains("-mhd") = False And My.Application.CommandLineArgs.Contains("-antiezo") = False And My.Application.CommandLineArgs.Contains("-fdc") = False And My.Application.CommandLineArgs.Contains("-bf2") = False And My.Application.CommandLineArgs.Contains("-wur") = False Then
             MsgBox("No argument was found. / Nebyl zadán nebo rozpoznán žádný argument.", MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -48,13 +51,13 @@ Public Class updater
         pb_load.Maximum = 100
         pb_load.Value = 1
         Try
-            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/launcher.exe", Application.StartupPath & "\launcher.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/f/minilauncher", Application.StartupPath & "\launcher.exe")
             pb_load.Value = 10
-            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/mini.exe", Application.StartupPath & "\mini.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/f/mini", Application.StartupPath & "\mini.exe")
             pb_load.Value = 20
-            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/mini2.exe", Application.StartupPath & "\mini2.exe")
+            wc.DownloadFile("https://dl.henryolik.ga/f/mini2", Application.StartupPath & "\mini2.exe")
             pb_load.Value = 30
-            wc.DownloadFile("https://dl.henryolik.ga/mini/launcher/files/icon.ico", Application.StartupPath & "\icon.ico")
+            wc.DownloadFile("https://dl.henryolik.ga/f/miniicon", Application.StartupPath & "\icon.ico")
             pb_load.Value = 35
         Catch ex As Exception
             MsgBox("Aktualizace se nezdařila! Chyba: " & ex.ToString, MsgBoxStyle.Critical, "Error")
@@ -195,7 +198,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.henryolik.ga/fdc/fdc.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/f/fdc", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -245,7 +248,7 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.henryolik.ga/bf2/updater/BF2Updater.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/f/bf2updater", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -268,7 +271,30 @@ Public Class updater
         Dim wc As WebClient = New WebClient()
         Try
             pb_load.Value = 1
-            wc.DownloadFile("https://dl.henryolik.ga/wur/WUreset.exe", exeloc)
+            wc.DownloadFile("https://dl.henryolik.ga/f/wur", exeloc)
+        Catch ex As Exception
+            MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
+            Application.Exit()
+        End Try
+        pb_load.Value = 100
+        Process.Start(exeloc)
+        Me.Close()
+    End Sub
+
+    Public Sub gtaiv()
+        Dim exeloc As String
+        Dim mystr As String = My.Application.CommandLineArgs.Item(1)
+        Dim cut_at As String = "-e:"
+        Dim x As Integer = InStr(mystr, cut_at)
+        exeloc = mystr.Substring(x + cut_at.Length - 1)
+        la_text.Text = "Update in progress..."
+        Me.Show()
+        pb_load.Minimum = 0
+        pb_load.Maximum = 100
+        Dim wc As WebClient = New WebClient()
+        Try
+            pb_load.Value = 1
+            wc.DownloadFile("https://dl.henryolik.ga/f/gtaiv", exeloc)
         Catch ex As Exception
             MsgBox("Update failed! Error: " & ex.ToString, MsgBoxStyle.Critical, "Error")
             Application.Exit()
@@ -279,7 +305,7 @@ Public Class updater
     End Sub
 
     Public Function Internet() As Boolean
-        Dim objUrl As New System.Uri("https://dl.henryolik.ga/status.txt")
+        Dim objUrl As New System.Uri("https://dl.henryolik.ga/f/status")
         Dim objWebReq As System.Net.WebRequest
         objWebReq = System.Net.WebRequest.Create(objUrl)
         Dim objResp As System.Net.WebResponse
